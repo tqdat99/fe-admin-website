@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+    <link rel="stylesheet" href="stylesheets/pagi-style.css">
+
+</head>
+
+<body style="background-color: #F4F7FC;">
+    <div class="container">
+        <img class="fe-logo" src="images/fe-logo.png">
+        <div class="row d-flex align-items-center">
+            <h1>Request (2)</h1>
+        </div>
+        <div class="row d-flex align-items-center">
+            <div class="col-8">
+                <% if (Status == "pending"){ %>
+                    <button onclick="window.location='/pending-ascending-1'" class="pending-active">Chưa duyệt</button>
+                    <button onclick="window.location='/approved-ascending-1'" class="approved-inactive">Hợp lệ</button>
+                    <button onclick="window.location='/declined-ascending-1'" class="declined-inactive">Không hợp lệ</button>
+                    <% } %>
+                        <% if (Status == "approved"){ %>
+                            <button onclick="window.location='/pending-ascending-1'" class="pending-inactive">Chưa duyệt</button>
+                            <button onclick="window.location='/approved-ascending-1'" class="approved-active">Hợp lệ</button>
+                            <button onclick="window.location='/declined-ascending-1'" class="declined-inactive">Không hợp lệ</button>
+                            <% } %>
+                                <% if (Status == "declined"){ %>
+                                    <button onclick="window.location='/pending-ascending-1'" class="pending-inactive">Chưa duyệt</button>
+                                    <button onclick="window.location='/approved-ascending-1'" class="approved-inactive">Hợp lệ</button>
+                                    <button onclick="window.location='/declined-ascending-1'" class="declined-active">Không hợp lệ</button>
+                                    <% } %>
+            </div>
+            <div class="col-4 align-items-center">
+                <form class="form-inline">
+                    <input type="text" class="form-control" id="inputPassword2" placeholder="Tìm theo tên">
+                </form>
+            </div>
+        </div>
+
+        <table class="table my-table">
+            <colgroup>
+                <col style="width:42%">
+                <col style="width:18%">
+                <col style="width:20%">
+                <col style="width:15%">
+                <col style="width:5%">
+            </colgroup>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Tên khách hàng</th>
+                    <th scope="col">Số điện thoại</th>
+                    <% if (Sort == "ascending"){ %>
+                        <th onclick="window.location='/<%=Status%>-descending-1'" class="clickable" scope="col">Ngày nộp đơn <img src="icons/sort-up.svg" class="small-icon" /></th>
+                        <% } %>
+                            <% if (Sort == "descending"){ %>
+                                <th onclick="window.location='/<%=Status%>-ascending-1'" class="clickable" scope="col">Ngày nộp đơn <img src="icons/sort-down.svg" class="small-icon" /></th>
+                                <% } %>
+                                    <th scope="col">Tình trạng</th>
+                                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="fade-in one">
+                <% Items.rows.forEach(function(item){ %>
+                    <tr class="my-tr" onclick="window.location='/result'">
+                        <!-- <th class="name" scope="row">Nguyễn Văn Nam</th> -->
+                        <th class="label">
+                            <%= item.id%>
+                        </th>
+                        <td>0379990217</td>
+                        <td>14:43, 5/11/2019</td>
+                        <td class="pending">Chưa duyệt</td>
+                        <td><img src="icons/detail.svg" class="big-icon" /></td>
+                    </tr>
+                    <% }); %>
+                        <!-- <tr class="my-tr" onclick="window.location='/result'">
+                    <th class="name" scope="row">Nguyễn Văn Nam</th>
+                    <td>0379990217</td>
+                    <td>14:43, 5/11/2019</td>
+                    <td class="pending">Chưa duyệt</td>
+                    <td><img src="icons/detail.svg" class="big-icon" /></td>
+                </tr>
+                <tr class="my-tr" onclick="window.location='/'">
+                    <th class="name" scope="row">Nguyễn Văn Nam</th>
+                    <td>0379990217</td>
+                    <td>14:43, 5/11/2019</td>
+                    <td class="pending">Chưa duyệt</td>
+                    <td><img src="icons/detail.svg" class="big-icon" /></td>
+                </tr>
+                <tr class="my-tr" onclick="window.location='/'">
+                    <th class="name" scope="row">Nguyễn Văn Nam</th>
+                    <td>0379990217</td>
+                    <td>14:43, 5/11/2019</td>
+                    <td class="pending">Chưa duyệt</td>
+                    <td><img src="icons/detail.svg" class="big-icon" /></td>
+                </tr>
+                <tr class="my-tr" onclick="window.location='/'">
+                    <th class="name" scope="row">Nguyễn Văn Nam</th>
+                    <td>0379990217</td>
+                    <td>14:43, 5/11/2019</td>
+                    <td class="pending">Chưa duyệt</td>
+                    <td><img src="icons/detail.svg" class="big-icon" /></td>
+                </tr>
+                <tr class="my-tr" onclick="window.location='/'">
+                    <th class="name" scope="row">Nguyễn Văn Nam</th>
+                    <td>0379990217</td>
+                    <td>14:43, 5/11/2019</td>
+                    <td class="pending">Chưa duyệt</td>
+                    <td><img src="icons/detail.svg" class="big-icon" /></td>
+                </tr> -->
+            </tbody>
+        </table>
+        <div id="app">
+            <div class="container" :style="{ 'max-width': containerWidth + 'px' }">
+                <app-pagination v-model="page" :length=<%=Length%> :total-visible=7>
+                    <template #prev-icon>
+                        <i class="fa fa-chevron-left"></i>
+                    </template>
+                    <template #next-icon>
+                        <i class="fa fa-chevron-right"></i>
+                    </template>
+                </app-pagination>
+            </div>
+        </div>
+        <div id="app"></div>
+    </div>
+
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+<script src="javascripts/scripts.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

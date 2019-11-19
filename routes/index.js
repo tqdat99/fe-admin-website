@@ -26,8 +26,25 @@ const pool = new Pool({
     idleTimeoutMillis: 300000000,
 });
 
+const axios = require('axios');
+axios({
+    method: 'get',
+    url: 'https://devc-fe-backend.herokuapp.com/form?id=',
+    data: {
+        id: 2
+    }
+});
+
 router.get('/test', function(req, res, next) {
     res.render('test3');
+});
+
+axios.get('https://devc-fe-backend.herokuapp.com/form?id=', {
+    params: {
+        id: 1
+    }
+}).then(resp => {
+    console.log(resp.data);
 });
 
 /* GET home page. */

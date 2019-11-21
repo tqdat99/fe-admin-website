@@ -12,18 +12,23 @@ router.get('/', function(req, res, next) {
 
     var status = 0
     var sort = "ascending";
+    var pending = 0;
 
     axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
 
         var i;
-        for (i = 0; i < resp.data.Forms.length; i++)
+        for (i = 0; i < resp.data.Forms.length; i++) {
             if (resp.data.Forms[i].VerificationStatus == status)
                 Forms.push(resp.data.Forms[i]);
+            if (resp.data.Forms[i].VerificationStatus == 0)
+                pending++;
+        }
 
         res.render('index', {
             Items: Forms,
             Status: status,
             Sort: sort,
+            Pending: pending,
             Length: resp.data.Forms.Length
         });
     }).catch(error => { console.log(error); });
@@ -57,19 +62,24 @@ router.get('/status=:status-sort=:sort', function(req, res, next) {
 
     var status = req.params["status"];
     var sort = req.params["sort"];
+    var pending = 0;
 
     axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
 
         var i;
-        for (i = 0; i < resp.data.Forms.length; i++)
+        for (i = 0; i < resp.data.Forms.length; i++) {
             if (resp.data.Forms[i].VerificationStatus == status)
                 Forms.push(resp.data.Forms[i]);
+            if (resp.data.Forms[i].VerificationStatus == 0)
+                pending++;
+        }
 
         res.render('index', {
             Items: Forms,
             Status: status,
             Sort: sort,
-            Length: resp.data.Forms.Length
+            Length: resp.data.Forms.Length,
+            Pending: pending
         });
     }).catch(error => { console.log(error); });
 });

@@ -16,7 +16,8 @@
     <div class="container">
         <img class="fe-logo" src="images/fe-logo.png">
         <div class="row d-flex align-items-center">
-            <h1>Request (2)</h1>
+            <h1>Chờ xác thực (
+                <%=Pending%> )</h1>
         </div>
         <div class="row d-flex align-items-center">
             <div class="col-8">
@@ -76,7 +77,9 @@
                             <%= item.PhoneNumber%>
                         </td>
                         <td>
-                            <%= item.CreatedAt%>
+                            <!-- <% let date = new Date(item.CreatedAt)%> -->
+                            <!-- <% let formattedDate = date.getHours() + ":" + date.getMinutes() + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()%> -->
+                            <%= Date(item.CreatedAt)%>
                         </td>
                         <% if (item.VerificationStatus == -1){%>
                             <td class="declined">Đã từ chối</td>

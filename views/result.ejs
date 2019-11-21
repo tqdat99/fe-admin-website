@@ -76,22 +76,22 @@
                             <h6 class="card-subtitle mb-2 text-muted">Số CMND </h6>
                             <%if (Item.IdentityNumberResult){%>
                                 <p class="card-text card-content no-btm-margin ">
-                                    <%=Item.IdentityNumber%>
+                                    <%=Item.OCRIdentityNumber%>
                                         <img src="icons/valid.svg" class="small-icon" /></p>
                                 <%}else{%>
                                     <p class="card-text card-content no-btm-margin" style="color: #FF4747">
-                                        <%=Item.IdentityNumber%>
+                                        <%=Item.OCRIdentityNumber%>
                                             <img src="icons/invalid.svg" class="small-icon" /></p>
                                     <%}%>
 
                                         <h6 class="card-subtitle mb-2 text-muted">Họ tên</h6>
                                         <%if (Item.FullnameResult){%>
                                             <p class="card-text card-content no-btm-margin ">
-                                                <%=Item.Fullname%>
+                                                <%=Item.OCRFullname%>
                                                     <img src="icons/valid.svg" class="small-icon" /></p>
                                             <%}else{%>
                                                 <p class="card-text card-content no-btm-margin" style="color: #FF4747">
-                                                    <%=Item.Fullname%>
+                                                    <%=Item.OCRFullname%>
                                                         <img src="icons/invalid.svg" class="small-icon" /></p>
                                                 <%}%>
 
@@ -99,22 +99,22 @@
                                                     <h6 class="card-subtitle mb-2 text-muted">Ngày sinh</h6>
                                                     <%if (Item.BirthdayResult){%>
                                                         <p class="card-text card-content no-btm-margin ">
-                                                            <%=Item.Birthday%>
+                                                            <%=Item.OCRBirthday%>
                                                                 <img src="icons/valid.svg" class="small-icon" /></p>
                                                         <%}else{%>
                                                             <p class="card-text card-content no-btm-margin" style="color: #FF4747">
-                                                                <%=Item.Birthday%>
+                                                                <%=Item.OCRBirthday%>
                                                                     <img src="icons/invalid.svg" class="small-icon" /></p>
                                                             <%}%>
 
                                                                 <h6 class="card-subtitle mb-2 text-muted">Nguyên quán</h6>
                                                                 <%if (Item.HometownResult){%>
                                                                     <p class="card-text card-content no-btm-margin ">
-                                                                        <%=Item.Hometown%>
+                                                                        <%=Item.OCRHometown%>
                                                                             <img src="icons/valid.svg" class="small-icon" /></p>
                                                                     <%}else{%>
                                                                         <p class="card-text card-content no-btm-margin" style="color: #FF4747">
-                                                                            <%=Item.Hometown%>
+                                                                            <%=Item.OCRHometown%>
 
                                                                                 <img src="icons/invalid.svg" class="small-icon" /></p>
                                                                         <%}%>
@@ -122,13 +122,13 @@
                                                                             <h6 class="card-subtitle mb-2 text-muted">Nơi ĐKHK thường trú </h6>
                                                                             <%if (Item.DistrictResult && Item.ProvinceResult){%>
                                                                                 <p class="card-text card-content no-btm-margin ">
-                                                                                    <%=Item.Province%>,
-                                                                                        <%=Item.District%>
+                                                                                    <%=Item.OCRProvince%>,
+                                                                                        <%=Item.OCRDistrict%>
                                                                                             <img src="icons/valid.svg" class="small-icon" /></p>
                                                                                 <%}else{%>
                                                                                     <p class="card-text card-content no-btm-margin" style="color: #FF4747">
-                                                                                        <%=Item.Province%>,
-                                                                                            <%=Item.District%>
+                                                                                        <%=Item.OCRProvince%>,
+                                                                                            <%=Item.OCRDistrict%>
                                                                                                 <img src="icons/invalid.svg" class="small-icon" /></p>
                                                                                     <%}%>
 

@@ -6,40 +6,27 @@ var pg = require('pg'),
 
 const axios = require('axios');
 
-var pendingForms = new Array(),
-    approvedForms = new Array(),
-    declinedForms = new Array();
-
-// function getForms() {
-//     axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
-//         console.log(resp.data.Forms.length);
-//         var i;
-//         for (i = 0; i < resp.data.Forms.length; i++) {
-//             if (resp.data.Forms[i].VerificationStatus == 0) {
-//                 pendingForms.push(resp.data.Forms[i]);
-//             }
-//             if (resp.data.Forms[i].VerificationStatus == -1)
-//                 declinedForms.push(resp.data.Forms[i]);
-//             if (resp.data.Forms[i].VerificationStatus == 1)
-//                 approvedForms.push(resp.data.Forms[i]);
-//         }
-//     }).catch(error => { console.log(error); });
-// }
-// getForms();
-// console.log(pendingForms.length);
-// console.log(approvedForms.length);
-// console.log(declinedForms.length);
-
 
 router.get('/', function(req, res, next) {
-    var status = "pending";
+    var Forms = new Array();
+
+    var status = 0
     var sort = "ascending";
-    var page = 1;
-    query = 'SELECT * FROM "Laptop" LIMIT 5 OFFSET (' + page + ' - 1) * 5';
-    pool.query(query, function(err, result) {
-        console.log(err, result.rowCount);
-        res.render('index', { Items: result, Status: status, Sort: sort, Page: page });
-    });
+
+    axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
+
+        var i;
+        for (i = 0; i < resp.data.Forms.length; i++)
+            if (resp.data.Forms[i].VerificationStatus == status)
+                Forms.push(resp.data.Forms[i]);
+
+        res.render('index', {
+            Items: Forms,
+            Status: status,
+            Sort: sort,
+            Length: resp.data.Forms.Length
+        });
+    }).catch(error => { console.log(error); });
 });
 
 router.get('/result-id=:id', function(req, res, next) {

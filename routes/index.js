@@ -4,63 +4,32 @@ var pg = require('pg'),
     session = require('express-session'),
     pgSession = require('connect-pg-simple')(session);
 
-// const { Pool, Client } = require('pg')
-// const pool = new Pool({
-//     user: 'postgres',
-//     database: 'EcomDB',
-//     password: 'dat',
-//     host: 'localhost',
-//     port: 3001,
-//     max: 10,
-//     idleTimeoutMillis: 300000000,
-// })
-
-const { Pool, Client } = require('pg')
-const pool = new Pool({
-    user: 'xljfmycrkdjihn',
-    database: 'degkor64j0gfe6',
-    password: '9ace4aff47858df147c4f0f041220c0b2ed2c605e962e531b714f90a1460549f',
-    host: 'ec2-50-17-231-192.compute-1.amazonaws.com',
-    port: 5432,
-    max: 10,
-    idleTimeoutMillis: 300000000,
-});
-
 const axios = require('axios');
-axios({
-    method: 'get',
-    url: 'https://devc-fe-backend.herokuapp.com/form?id=',
-    data: {
-        id: 2
-    }
-});
 
-router.get('/test', function(req, res, next) {
-    res.render('test3');
-});
+var pendingForms = new Array(),
+    approvedForms = new Array(),
+    declinedForms = new Array();
 
-axios.get('https://devc-fe-backend.herokuapp.com/form?id=', {
-    params: {
-        id: 1
-    }
-}).then(resp => {
-    console.log(resp.data);
-});
+// function getForms() {
+//     axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
+//         console.log(resp.data.Forms.length);
+//         var i;
+//         for (i = 0; i < resp.data.Forms.length; i++) {
+//             if (resp.data.Forms[i].VerificationStatus == 0) {
+//                 pendingForms.push(resp.data.Forms[i]);
+//             }
+//             if (resp.data.Forms[i].VerificationStatus == -1)
+//                 declinedForms.push(resp.data.Forms[i]);
+//             if (resp.data.Forms[i].VerificationStatus == 1)
+//                 approvedForms.push(resp.data.Forms[i]);
+//         }
+//     }).catch(error => { console.log(error); });
+// }
+// getForms();
+// console.log(pendingForms.length);
+// console.log(approvedForms.length);
+// console.log(declinedForms.length);
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//     var status = "pending";
-//     var sort = "ascending";
-//     var page = 1;
-
-//     query = 'SELECT * FROM "Laptop"';
-//     // query = 'SELECT * FROM "Laptop" LIMIT 5 OFFSET (' + page + ' - 1) * 5';
-//     console.log(query);
-//     pool.query(query, function(err, result) {
-//         console.log(err, result);
-//         res.render('index', { Items: result, Status: status, Sort: sort, Page: page, paginationHtml: paginationHtml });
-//     });
-// });
 
 router.get('/', function(req, res, next) {
     var status = "pending";
@@ -73,54 +42,49 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/result', function(req, res, next) {
-    res.render('result');
+router.get('/result-id=:id', function(req, res, next) {
+    id = req.params["id"];
+    url = "https://devc-fe-backend.herokuapp.com/form?id=" + id;
+    axios.get(url).then(resp => {
+        res.render('result', {
+            Item: resp.data.Form
+        });
+    }).catch(error => { console.log(error); });
+
 });
 
-router.get('/:status-:sort-:page', function(req, res, next) {
+router.post('/result-id=:id-status=:status', function(req, res) {
+    id = req.params["id"];
+    status = req.params["status"];
+    url = "https://devc-fe-backend.herokuapp.com/status?id=" + id + "&value=" + status;
+    axios.put(url).then(resp => {
+        res.redirect('back');
+    }).catch(error => { console.log(error); });
+});
+
+
+
+router.get('/status=:status-sort=:sort', function(req, res, next) {
+
+    var Forms = new Array();
 
     var status = req.params["status"];
     var sort = req.params["sort"];
-    var page = req.params["page"];
 
-    pool.query('SELECT * FROM "Laptop"', function(err, items) {
-        var itemsPerPage = 5;
-        var itemsCount = items.rowCount;
-        var length;
-        if (itemsCount % itemsPerPage > 0) {
-            length = Math.floor(itemsCount / itemsPerPage) + 1;
-        } else {
-            length = itemsCount / itemsPerPage;
-        }
+    axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
 
-        query = 'SELECT * FROM "Laptop" LIMIT ' + itemsPerPage + ' OFFSET (' + page + ' - 1) * ' + itemsPerPage;
+        var i;
+        for (i = 0; i < resp.data.Forms.length; i++)
+            if (resp.data.Forms[i].VerificationStatus == status)
+                Forms.push(resp.data.Forms[i]);
 
-        pool.query(query, function(err, result) {
-            res.render('index', { Items: result, Status: status, Sort: sort, Page: page, Length: length });
+        res.render('index', {
+            Items: Forms,
+            Status: status,
+            Sort: sort,
+            Length: resp.data.Forms.Length
         });
-    });
-    //res.render('index', { Status: status, Sort: sort, Page: page });
+    }).catch(error => { console.log(error); });
 });
-
-// router.get('/:status-:sort/?page=:page', function(req, res, next) {
-//     var status = req.params["status"];
-//     var sort = req.params["sort"];
-//     var page = req.params["page"];
-
-//     var paginate = require('paginate')();
-//     var totalItems = 50,
-//         itemsPerPage = 2,
-//         pageNum = 1;
-//     var pagination = paginate.page(totalItems, itemsPerPage, pageNum);
-//     var paginationHtml = pagination.render({ baseUrl: '/' }); //t
-
-//     query = 'SELECT * FROM "Laptop"';
-//     // query = 'SELECT * FROM "Laptop" LIMIT 5 OFFSET (' + page + ' - 1) * 5';
-//     console.log(query);
-//     pool.query(query, function(err, result) {
-//         console.log(err, result);
-//         res.render('index', { Items: result, Status: status, Sort: sort, Page: page, paginationHtml: paginationHtml });
-//     });
-// });
 
 module.exports = router;

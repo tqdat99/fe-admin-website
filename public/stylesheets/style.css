@@ -167,7 +167,7 @@ p-info {
     margin-top: 16px;
     margin-bottom: 16px;
     border-radius: 8px;
-    background-color: rgb(68, 90, 131);
+    background-color: rgb(30, 53, 99);
 }
 
 .img_holder_selfie {
@@ -180,7 +180,7 @@ p-info {
     margin-top: 16px;
     margin-bottom: 16px;
     border-radius: 8px;
-    background-color: rgb(68, 90, 131);
+    background-color: rgb(30, 53, 99);
 }
 
 .clickable {
@@ -205,8 +205,8 @@ p-info {
 }
 
 .small-icon {
-    height: 12px;
-    width: 12px;
+    height: 14px;
+    width: 14px;
     margin-bottom: 2px;
     margin-left: 8px;
     margin-right: 16px;
@@ -235,8 +235,22 @@ p-info {
     color: #31D987;
 }
 
+.percentage-valid:after {
+    content: attr(data-end);
+    font-size: 32px;
+    font-weight: bold;
+    color: #31D987;
+}
+
 .percentage-invalid {
     font-size: 56px;
+    font-weight: bold;
+    color: #FF4747;
+}
+
+.percentage-invalid:after {
+    content: attr(data-end);
+    font-size: 32px;
     font-weight: bold;
     color: #FF4747;
 }
@@ -293,12 +307,16 @@ tr.my-tr:hover {
     -webkit-box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
 
 tr.my-tr {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.back {
+    cursor: pointer;
 }
 
 p-name {
@@ -601,4 +619,26 @@ h1 {
 .label {
     font-family: "Lato";
     font-weight: normal;
+}
+
+.no-btm-margin {
+    margin-bottom: 0px;
+}
+
+.warning {
+    color: #FF4747;
+    display: inline;
+}
+
+.valid {
+    color: #31D987;
+    display: inline;
+}
+
+.tip span {
+    margin-left: 10px;
+}
+
+img {
+    vertical-align: middle;
 }

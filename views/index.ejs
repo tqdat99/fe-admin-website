@@ -20,20 +20,20 @@
         </div>
         <div class="row d-flex align-items-center">
             <div class="col-8">
-                <% if (Status == "pending"){ %>
-                    <button onclick="window.location='/pending-ascending-1'" class="pending-active">Chưa duyệt</button>
-                    <button onclick="window.location='/approved-ascending-1'" class="approved-inactive">Hợp lệ</button>
-                    <button onclick="window.location='/declined-ascending-1'" class="declined-inactive">Không hợp lệ</button>
+                <% if (Status == "0"){ %>
+                    <button onclick="window.location='/status=0-sort=ascending'" class="pending-active">Chưa duyệt</button>
+                    <button onclick="window.location='/status=1-sort=ascending'" class="approved-inactive">Đã xác thực</button>
+                    <button onclick="window.location='/status=-1-sort=ascending'" class="declined-inactive">Đã từ chối</button>
                     <% } %>
-                        <% if (Status == "approved"){ %>
-                            <button onclick="window.location='/pending-ascending-1'" class="pending-inactive">Chưa duyệt</button>
-                            <button onclick="window.location='/approved-ascending-1'" class="approved-active">Hợp lệ</button>
-                            <button onclick="window.location='/declined-ascending-1'" class="declined-inactive">Không hợp lệ</button>
+                        <% if (Status == "1"){ %>
+                            <button onclick="window.location='/status=0-sort=ascending'" class="pending-inactive">Chưa duyệt</button>
+                            <button onclick="window.location='/status=1-sort=ascending'" class="approved-active">Đã xác thực</button>
+                            <button onclick="window.location='/status=-1-sort=ascending'" class="declined-inactive">Đã từ chối</button>
                             <% } %>
-                                <% if (Status == "declined"){ %>
-                                    <button onclick="window.location='/pending-ascending-1'" class="pending-inactive">Chưa duyệt</button>
-                                    <button onclick="window.location='/approved-ascending-1'" class="approved-inactive">Hợp lệ</button>
-                                    <button onclick="window.location='/declined-ascending-1'" class="declined-active">Không hợp lệ</button>
+                                <% if (Status == "-1"){ %>
+                                    <button onclick="window.location='/status=0-sort=ascending'" class="pending-inactive">Chưa duyệt</button>
+                                    <button onclick="window.location='/status=1-sort=ascending'" class="approved-inactive">Đã xác thực</button>
+                                    <button onclick="window.location='/status=-1-sort=ascending'" class="declined-active">Đã từ chối</button>
                                     <% } %>
             </div>
             <div class="col-4 align-items-center">
@@ -66,56 +66,32 @@
                 </tr>
             </thead>
             <tbody class="fade-in one">
-                <% Items.rows.forEach(function(item){ %>
-                    <tr class="my-tr" onclick="window.location='/result'">
+                <% Items.forEach(function(item){ %>
+                    <tr class="my-tr" onclick="window.location='/result-id=<%= item.UserId%>'">
                         <!-- <th class="name" scope="row">Nguyễn Văn Nam</th> -->
                         <th class="label">
-                            <%= item.id%>
+                            <%= item.Fullname%>
                         </th>
-                        <td>0379990217</td>
-                        <td>14:43, 5/11/2019</td>
-                        <td class="pending">Chưa duyệt</td>
-                        <td><img src="icons/detail.svg" class="big-icon" /></td>
+                        <td>
+                            <%= item.PhoneNumber%>
+                        </td>
+                        <td>
+                            <%= item.CreatedAt%>
+                        </td>
+                        <% if (item.VerificationStatus == -1){%>
+                            <td class="declined">Đã từ chối</td>
+                            <%} else if (item.VerificationStatus == 0){%>
+                                <td class="pending">Chưa duyệt</td>
+                                <%} else if (item.VerificationStatus == 1){%>
+                                    <td class="approved">Đã xác thực</td>
+                                    <%}%>
+
+                                        <td><img src="icons/detail.svg" class="big-icon" /></td>
                     </tr>
                     <% }); %>
-                        <!-- <tr class="my-tr" onclick="window.location='/result'">
-                    <th class="name" scope="row">Nguyễn Văn Nam</th>
-                    <td>0379990217</td>
-                    <td>14:43, 5/11/2019</td>
-                    <td class="pending">Chưa duyệt</td>
-                    <td><img src="icons/detail.svg" class="big-icon" /></td>
-                </tr>
-                <tr class="my-tr" onclick="window.location='/'">
-                    <th class="name" scope="row">Nguyễn Văn Nam</th>
-                    <td>0379990217</td>
-                    <td>14:43, 5/11/2019</td>
-                    <td class="pending">Chưa duyệt</td>
-                    <td><img src="icons/detail.svg" class="big-icon" /></td>
-                </tr>
-                <tr class="my-tr" onclick="window.location='/'">
-                    <th class="name" scope="row">Nguyễn Văn Nam</th>
-                    <td>0379990217</td>
-                    <td>14:43, 5/11/2019</td>
-                    <td class="pending">Chưa duyệt</td>
-                    <td><img src="icons/detail.svg" class="big-icon" /></td>
-                </tr>
-                <tr class="my-tr" onclick="window.location='/'">
-                    <th class="name" scope="row">Nguyễn Văn Nam</th>
-                    <td>0379990217</td>
-                    <td>14:43, 5/11/2019</td>
-                    <td class="pending">Chưa duyệt</td>
-                    <td><img src="icons/detail.svg" class="big-icon" /></td>
-                </tr>
-                <tr class="my-tr" onclick="window.location='/'">
-                    <th class="name" scope="row">Nguyễn Văn Nam</th>
-                    <td>0379990217</td>
-                    <td>14:43, 5/11/2019</td>
-                    <td class="pending">Chưa duyệt</td>
-                    <td><img src="icons/detail.svg" class="big-icon" /></td>
-                </tr> -->
             </tbody>
         </table>
-        <div id="app">
+        <!-- <div id="app">
             <div class="container" :style="{ 'max-width': containerWidth + 'px' }">
                 <app-pagination v-model="page" :length=<%=Length%> :total-visible=7>
                     <template #prev-icon>
@@ -127,7 +103,6 @@
                 </app-pagination>
             </div>
         </div>
-        <div id="app"></div>
     </div>
 
 </body>

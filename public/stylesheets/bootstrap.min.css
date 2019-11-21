@@ -426,10 +426,11 @@ h5 {
 
 .h6,
 h6 {
-    font-size: 10px;
+    font-size: 12px;
     color: #8B9BBA;
     font-family: "Lato";
     text-transform: uppercase;
+    margin-top:
 }
 
 .lead {
@@ -4838,7 +4839,7 @@ input[type=submit].btn-block {
     box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.04);
     height: 90%;
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 48px;
     padding-right: 40px;
     padding-left: 40px;
 }
@@ -4866,6 +4867,7 @@ input[type=submit].btn-block {
 }
 
 .card-content {
+    font-size: 18px;
     color: #5C6C7B;
 }
 
@@ -4874,8 +4876,12 @@ input[type=submit].btn-block {
 }
 
 .card-subtitle {
-    margin-top: -.375rem;
+    margin-top: 16px;
     margin-bottom: 0
+}
+
+.card-subtitle:first-child {
+    margin-top: 0px;
 }
 
 .card-text:last-child {

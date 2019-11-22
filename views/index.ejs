@@ -22,19 +22,19 @@
         <div class="row d-flex align-items-center">
             <div class="col-8">
                 <% if (Status == "0"){ %>
-                    <button onclick="window.location='/status=0-sort=ascending'" class="pending-active">Chưa duyệt</button>
-                    <button onclick="window.location='/status=1-sort=ascending'" class="approved-inactive">Đã xác thực</button>
-                    <button onclick="window.location='/status=-1-sort=ascending'" class="declined-inactive">Đã từ chối</button>
+                    <button onclick="window.location='/status=0'" class="pending-active">Chưa duyệt</button>
+                    <button onclick="window.location='/status=1'" class="approved-inactive">Đã xác thực</button>
+                    <button onclick="window.location='/status=-1'" class="declined-inactive">Đã từ chối</button>
                     <% } %>
                         <% if (Status == "1"){ %>
-                            <button onclick="window.location='/status=0-sort=ascending'" class="pending-inactive">Chưa duyệt</button>
-                            <button onclick="window.location='/status=1-sort=ascending'" class="approved-active">Đã xác thực</button>
-                            <button onclick="window.location='/status=-1-sort=ascending'" class="declined-inactive">Đã từ chối</button>
+                            <button onclick="window.location='/status=0'" class="pending-inactive">Chưa duyệt</button>
+                            <button onclick="window.location='/status=1'" class="approved-active">Đã xác thực</button>
+                            <button onclick="window.location='/status=-1'" class="declined-inactive">Đã từ chối</button>
                             <% } %>
                                 <% if (Status == "-1"){ %>
-                                    <button onclick="window.location='/status=0-sort=ascending'" class="pending-inactive">Chưa duyệt</button>
-                                    <button onclick="window.location='/status=1-sort=ascending'" class="approved-inactive">Đã xác thực</button>
-                                    <button onclick="window.location='/status=-1-sort=ascending'" class="declined-active">Đã từ chối</button>
+                                    <button onclick="window.location='/status=0'" class="pending-inactive">Chưa duyệt</button>
+                                    <button onclick="window.location='/status=1'" class="approved-inactive">Đã xác thực</button>
+                                    <button onclick="window.location='/status=-1'" class="declined-active">Đã từ chối</button>
                                     <% } %>
             </div>
             <div class="col-4 align-items-center">
@@ -46,9 +46,9 @@
 
         <table class="table my-table">
             <colgroup>
-                <col style="width:42%">
-                <col style="width:18%">
-                <col style="width:20%">
+                <col style="width:40%">
+                <col style="width:15%">
+                <col style="width:25%">
                 <col style="width:15%">
                 <col style="width:5%">
             </colgroup>
@@ -56,19 +56,14 @@
                 <tr>
                     <th scope="col">Tên khách hàng</th>
                     <th scope="col">Số điện thoại</th>
-                    <% if (Sort == "ascending"){ %>
-                        <th onclick="window.location='/<%=Status%>-descending-1'" class="clickable" scope="col">Ngày nộp đơn <img src="icons/sort-up.svg" class="small-icon" /></th>
-                        <% } %>
-                            <% if (Sort == "descending"){ %>
-                                <th onclick="window.location='/<%=Status%>-ascending-1'" class="clickable" scope="col">Ngày nộp đơn <img src="icons/sort-down.svg" class="small-icon" /></th>
-                                <% } %>
-                                    <th scope="col">Tình trạng</th>
-                                    <th scope="col"></th>
+                    <th scope="col">Ngày nộp đơn </th>
+                    <th scope="col">Tình trạng</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody class="fade-in one">
                 <% Items.forEach(function(item){ %>
-                    <tr class="my-tr" onclick="window.location='/result-id=<%= item.UserId%>'">
+                    <tr class="my-tr" onclick="window.location='/status=<%=Status%>-id=<%= item.UserId%>'">
                         <!-- <th class="name" scope="row">Nguyễn Văn Nam</th> -->
                         <th class="label">
                             <%= item.Fullname%>
@@ -77,9 +72,8 @@
                             <%= item.PhoneNumber%>
                         </td>
                         <td>
-                            <!-- <% let date = new Date(item.CreatedAt)%> -->
-                            <!-- <% let formattedDate = date.getHours() + ":" + date.getMinutes() + ", " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()%> -->
-                            <%= Date(item.CreatedAt)%>
+                            <% date = new Date(item.CreatedAt * 1).toLocaleString()%>
+                                <%= date.toLocaleString()%>
                         </td>
                         <% if (item.VerificationStatus == -1){%>
                             <td class="declined">Đã từ chối</td>

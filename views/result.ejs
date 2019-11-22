@@ -12,7 +12,7 @@
 
     <div class="sidenav right_stroke fade-in one">
         <div class="my-row">
-            <h3 style="color: #ffffff" class="back" onclick="window.history.back()"><img src="icons/back.svg" class="big-icon" /> Trở lại </h3>
+            <h3 style="color: #ffffff" class="back" onclick="window.location.href = '/status=<%=Status%>';"><img src="icons/back.svg" class="big-icon" /> Trở lại </h3>
         </div>
         <div class="info-container">
             <div class="my-row d-flex align-items-center">
@@ -23,7 +23,10 @@
             </div>
             <div class="my-row d-flex align-items-center">
                 <img src="icons/time.svg" class="info-icon" />
-                <p-info>15:12, 24/10/2019</p-info>
+                <p-info>
+                    <% date = new Date(Item.CreatedAt * 1).toLocaleString()%>
+                        <%= date.toLocaleString()%>
+                </p-info>
             </div>
             <div class="my-row d-flex align-items-center">
                 <img src="icons/phone.svg" class="info-icon" />
@@ -196,7 +199,7 @@
                         <div class="card-body">
                             Tỉ lệ
                             <div class="percentage-valid" data-end="%">
-                                <%=Item.FaceResult%>
+                                <%=Item.FaceResult.toFixed(2)%>
                             </div>
                         </div>
                     </div>
@@ -225,12 +228,14 @@
                         </div>
                         <div class="modal-body">
                             <p>Bạn sắp từ chối đơn vay của</p>
-                            <p-name>Nguyen Bao Ngoc </p-name>
-                            <p-invalid>97%</p-invalid>
+                            <p-name>
+                                <%=Item.Fullname%>
+                            </p-name>
+                            <!-- <p-invalid>97%</p-invalid> -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                            <form action="/result-id=<%=Item.UserId%>-status=-1" method="POST">
+                            <form action="/id=<%=Item.UserId%>-status=-1" method="POST">
                                 <button type="submit" class="btn btn-danger">Từ chối</button>
                             </form>
                         </div>
@@ -248,13 +253,15 @@
                         </div>
                         <div class="modal-body">
                             <p>Bạn sắp xác thực đơn vay của</p>
-                            <p-name>Nguyen Bao Ngoc </p-name>
-                            <p-valid>97%</p-valid>
+                            <p-name>
+                                <%=Item.Fullname%>
+                            </p-name>
+                            <!-- <p-valid>97%</p-valid> -->
                         </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                            <form action="/result-id=<%=Item.UserId%>-status=1" method="POST">
+                            <form action="/id=<%=Item.UserId%>-status=1" method="POST">
                                 <button type="submit" class="btn btn-success">Xác thực</button>
                             </form>
                         </div>

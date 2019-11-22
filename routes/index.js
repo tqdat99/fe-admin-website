@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
     var Forms = new Array();
 
     var status = 0
-    var sort = "ascending";
     var pending = 0;
 
     axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
@@ -22,30 +21,31 @@ router.get('/', function(req, res, next) {
                 Forms.push(resp.data.Forms[i]);
             if (resp.data.Forms[i].VerificationStatus == 0)
                 pending++;
+            console.log(Date(resp.data.Forms[i].CreatedAt));
         }
-
         res.render('index', {
             Items: Forms,
-            Status: status,
-            Sort: sort,
+            Status: 0,
             Pending: pending,
             Length: resp.data.Forms.Length
         });
     }).catch(error => { console.log(error); });
 });
 
-router.get('/result-id=:id', function(req, res, next) {
+router.get('/status=:key-id=:id', function(req, res, next) {
     id = req.params["id"];
+    status = req.params["key"];
     url = "https://devc-fe-backend.herokuapp.com/form?id=" + id;
     axios.get(url).then(resp => {
         res.render('result', {
-            Item: resp.data.Form
+            Item: resp.data.Form,
+            Status: status
         });
     }).catch(error => { console.log(error); });
 
 });
 
-router.post('/result-id=:id-status=:status', function(req, res) {
+router.post('/id=:id-status=:status', function(req, res) {
     id = req.params["id"];
     status = req.params["status"];
     url = "https://devc-fe-backend.herokuapp.com/status?id=" + id + "&value=" + status;
@@ -56,12 +56,11 @@ router.post('/result-id=:id-status=:status', function(req, res) {
 
 
 
-router.get('/status=:status-sort=:sort', function(req, res, next) {
+router.get('/status=:status', function(req, res, next) {
 
     var Forms = new Array();
 
     var status = req.params["status"];
-    var sort = req.params["sort"];
     var pending = 0;
 
     axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
@@ -77,7 +76,6 @@ router.get('/status=:status-sort=:sort', function(req, res, next) {
         res.render('index', {
             Items: Forms,
             Status: status,
-            Sort: sort,
             Length: resp.data.Forms.Length,
             Pending: pending
         });

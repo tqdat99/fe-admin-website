@@ -72,7 +72,7 @@
                             <%= item.PhoneNumber%>
                         </td>
                         <td>
-                            <% date = new Date(item.CreatedAt).toLocaleString()%>
+                            <% date = new Date(item.CreatedAt * 1).toLocaleString()%>
                                 <%= date.toLocaleString()%>
                         </td>
                         <% if (item.VerificationStatus == -1){%>

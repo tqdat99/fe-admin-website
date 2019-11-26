@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
                 Forms.push(resp.data.Forms[i]);
             if (resp.data.Forms[i].VerificationStatus == 0)
                 pending++;
-            console.log(Date(resp.data.Forms[i].CreatedAt));
+            //console.log(Date(resp.data.Forms[i].CreatedAt));
         }
         res.render('index', {
             Items: Forms,

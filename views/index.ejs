@@ -72,8 +72,7 @@
                             <%= item.PhoneNumber%>
                         </td>
                         <td>
-                            <% date = new Date(item.CreatedAt * 1).toLocaleString()%>
-                                <%= date.toLocaleString()%>
+                            <%= new Date(item.CreatedAt * 1).toLocaleString()%>
                         </td>
                         <% if (item.VerificationStatus == -1){%>
                             <td class="declined">Đã từ chối</td>

@@ -24,8 +24,7 @@
             <div class="my-row d-flex align-items-center">
                 <img src="icons/time.svg" class="info-icon" />
                 <p-info>
-                    <% date = new Date(Item.CreatedAt * 1).toLocaleString()%>
-                        <%= date.toLocaleString()%>
+                    <%=new Date(Item.CreatedAt * 1).toLocaleString()%>
                 </p-info>
             </div>
             <div class="my-row d-flex align-items-center">

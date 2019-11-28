@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 a {
     color: #00B7FF;
 }
@@ -99,7 +99,7 @@ body {
 }
 
 p-info {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-size: 16px;
     color: #dcdbec;
     padding: 0;
@@ -286,7 +286,7 @@ p-info {
 
 .pending {
     color: #FFBA35;
-    font-family: "Lato Semibold";
+    font-family: "Roboto Semibold";
     margin: 0;
 }
 
@@ -304,7 +304,7 @@ p-info {
 
 .approved {
     color: #31D987;
-    font-family: "Lato Semibold";
+    font-family: "Roboto Semibold";
     margin: 0;
 }
 
@@ -323,7 +323,7 @@ p-info {
 
 .declined {
     color: #FF4747;
-    font-family: "Lato Semibold";
+    font-family: "Roboto Semibold";
     margin: 0;
 }
 
@@ -345,7 +345,7 @@ tr.my-tr {
 }
 
 p-name {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-weight: bold;
     font-size: 24px;
     text-transform: uppercase;
@@ -353,7 +353,7 @@ p-name {
 }
 
 p-valid {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-weight: bold;
     font-size: 24px;
     text-transform: uppercase;
@@ -362,7 +362,7 @@ p-valid {
 }
 
 p-invalid {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-weight: bold;
     text-transform: uppercase;
     color: #FF4747;
@@ -468,7 +468,7 @@ body {
     margin-right: auto;
     margin-top: 16px;
     display: block;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 12px;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -497,7 +497,7 @@ body {
 
 .pending-active {
     background-color: #FFBA35;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -513,7 +513,7 @@ body {
 
 .pending-inactive {
     background: #ffffff;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -529,7 +529,7 @@ body {
 
 .approved-active {
     background-color: #31D987;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -546,7 +546,7 @@ body {
 
 .approved-inactive {
     background: #ffffff;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -562,7 +562,7 @@ body {
 
 .declined-active {
     background-color: #FF4747;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -579,7 +579,7 @@ body {
 
 .declined-inactive {
     background: #ffffff;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -642,7 +642,7 @@ h1 {
 }
 
 .label {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-weight: normal;
 }
 
@@ -706,7 +706,7 @@ img {
     right: 0;
     bottom: 10%;
     left: 0;
-    font-family: 'Lato Slab', serif;
+    font-family: 'Roboto Slab', serif;
     font-size: 9px;
     line-height: 12px;
     text-align: center;

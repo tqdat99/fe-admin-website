@@ -195,13 +195,13 @@
                             <div class="row d-flex align-items-center text-center section-line" style="margin-bottom: 56px; padding-bottom: 32px;">
                                 <div class="col-12">
                                     Tỉ lệ chuẩn
-                                    <%if (Item.QuocHuyScore.toFixed(2)*100 > 50){%>
+                                    <%if (Math.floor(Item.QuocHuyScore*100) > 50){%>
                                         <div class="percentage-valid" data-end="%">
-                                            <%=Item.QuocHuyScore.toFixed(2)*100%>
+                                            <%=Math.floor(Item.QuocHuyScore*100)%>
                                         </div>
                                         <%}else {%>
                                             <div class="percentage-invalid" data-end="%">
-                                                <%=Item.QuocHuyScore.toFixed(2)*100%>
+                                                <%=Math.floor(Item.QuocHuyScore*100)%>
                                             </div>
                                             <%}%>
                                 </div>
@@ -224,13 +224,13 @@
                             <div class="row d-flex align-items-center text-center section-line" style="margin-bottom: 56px; padding-bottom: 32px;">
                                 <div class="col-12">
                                     Tỉ lệ chuẩn
-                                    <%if (Item.QuocNguScore.toFixed(2)*100 > 50){%>
+                                    <%if (Math.floor(Item.QuocNguScore*100) > 50){%>
                                         <div class="percentage-valid" data-end="%">
-                                            <%=Item.QuocNguScore.toFixed(2)*100%>
+                                            <%=Math.floor(Item.QuocNguScore*100)%>
                                         </div>
                                         <%}else {%>
                                             <div class="percentage-invalid" data-end="%">
-                                                <%=Item.QuocNguScore.toFixed(2)*100%>
+                                                <%=Math.floor(Item.QuocNguScore*100)%>
                                             </div>
                                             <%}%>
                                 </div>
@@ -253,13 +253,13 @@
                             <div class="row d-flex align-items-center text-center section-line" style="margin-bottom: 56px; padding-bottom: 32px;">
                                 <div class="col-12">
                                     Tỉ lệ chuẩn
-                                    <%if (Item.TieuNguScore.toFixed(2)*100 > 50){%>
+                                    <%if (Math.floor(Item.TieuNguScore*100) > 50){%>
                                         <div class="percentage-valid" data-end="%">
-                                            <%=Item.TieuNguScore.toFixed(2)*100%>
+                                            <%=Math.floor(Item.TieuNguScore*100)%>
                                         </div>
                                         <%}else {%>
                                             <div class="percentage-invalid" data-end="%">
-                                                <%=Item.TieuNguScore.toFixed(2)*100%>
+                                                <%=Math.floor(Item.TieuNguScore*100)%>
                                             </div>
                                             <%}%>
                                 </div>
@@ -282,13 +282,13 @@
                             <div class="row d-flex align-items-center text-center" style="margin-bottom: 32px;">
                                 <div class="col-12">
                                     Tỉ lệ chuẩn
-                                    <%if (Item.TenGiayScore.toFixed(2)*100 > 50){%>
+                                    <%if (Math.floor(Item.TenGiayScore*100) > 50){%>
                                         <div class="percentage-valid" data-end="%">
-                                            <%=Item.TenGiayScore.toFixed(2)*100%>
+                                            <%=Math.floor(Item.TenGiayScore*100)%>
                                         </div>
                                         <%}else {%>
                                             <div class="percentage-invalid" data-end="%">
-                                                <%=Item.TenGiayScore.toFixed(2)*100%>
+                                                <%=Math.floor(Item.TenGiayScore*100)%>
                                             </div>
                                             <%}%>
                                 </div>
@@ -320,13 +320,13 @@
                             <div class="row d-flex align-items-center text-center">
                                 <div class="col-12">
                                     Tỉ lệ trùng khớp
-                                    <%if (Item.FaceResult.toFixed(0) > 50){%>
+                                    <%if (Math.floor(Item.FaceResult) > 50){%>
                                         <div class="percentage-valid" data-end="%">
-                                            <%=Item.FaceResult.toFixed(0)%>
+                                            <%=Math.floor(Item.FaceResult)%>
                                         </div>
                                         <%}else {%>
                                             <div class="percentage-invalid" data-end="%">
-                                                <%=Item.FaceResult.toFixed(0)%>
+                                                <%=Math.floor(Item.FaceResult)%>
                                             </div>
                                             <%}%>
                                 </div>

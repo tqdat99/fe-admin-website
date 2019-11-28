@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
 
     axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
 
+        resp.data.Forms.reverse();
         var i;
         for (i = 0; i < resp.data.Forms.length; i++) {
             if (resp.data.Forms[i].VerificationStatus == status)
@@ -64,6 +65,8 @@ router.get('/status=:status', function(req, res, next) {
     var pending = 0;
 
     axios.get("https://devc-fe-backend.herokuapp.com/forms").then(resp => {
+
+        resp.data.Forms.reverse();
 
         var i;
         for (i = 0; i < resp.data.Forms.length; i++) {

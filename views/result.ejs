@@ -27,12 +27,12 @@
                     <%=new Date(Item.CreatedAt * 1).toLocaleString()%>
                 </p-info>
             </div>
-            <div class="my-row d-flex align-items-center">
+            <!-- <div class="my-row d-flex align-items-center">
                 <img src="icons/phone.svg" class="info-icon" />
                 <p-info>
                     <%=Item.PhoneNumber%>
                 </p-info>
-            </div>
+            </div> -->
             <div class="my-row d-flex align-items-center">
                 <img src="icons/status.svg" class="info-icon" />
                 <%if(Item.VerificationStatus==0){%>
@@ -51,6 +51,7 @@
             <p-info>Ảnh CMND</p-info>
         </div>
         <img src="data:image/png;base64, <%=Item.IdentityCardImage%>" class="img_holder_id_card" />
+
         <div class="my-row d-flex align-items-center">
             <img src="icons/selfie.svg" class="info-icon" />
             <p-info>Ảnh selfie</p-info>

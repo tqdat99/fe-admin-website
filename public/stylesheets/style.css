@@ -2,6 +2,12 @@ a {
     color: #00B7FF;
 }
 
+body {
+    zoom: 0.9;
+    -moz-transform: scale(0.9);
+    -moz-transform-origin: 0 0
+}
+
 @-webkit-keyframes fadeIn {
     from {
         opacity: 0;
@@ -92,7 +98,7 @@ a {
 }
 
 p-info {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-size: 16px;
     color: #dcdbec;
     padding: 0;
@@ -156,11 +162,8 @@ p-info {
 .img_holder_id_card {
     display: block;
     width: 340px;
-    height: 240px;
+    height: 220px;
     object-fit: contain;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 16px;
     margin-bottom: 16px;
     border-radius: 8px;
     background-color: rgb(16, 27, 46);
@@ -170,11 +173,8 @@ p-info {
 .img_holder_selfie {
     display: block;
     width: 340px;
-    height: 200px;
+    height: 180px;
     object-fit: contain;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 16px;
     margin-bottom: 16px;
     border-radius: 8px;
     background-color: rgb(16, 27, 46);
@@ -285,7 +285,7 @@ p-info {
 
 .pending {
     color: #FFBA35;
-    font-family: "Lato Semibold";
+    font-family: "Roboto Semibold";
     margin: 0;
 }
 
@@ -303,7 +303,7 @@ p-info {
 
 .approved {
     color: #31D987;
-    font-family: "Lato Semibold";
+    font-family: "Roboto Semibold";
     margin: 0;
 }
 
@@ -322,7 +322,7 @@ p-info {
 
 .declined {
     color: #FF4747;
-    font-family: "Lato Semibold";
+    font-family: "Roboto Semibold";
     margin: 0;
 }
 
@@ -344,7 +344,7 @@ tr.my-tr {
 }
 
 p-name {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-weight: bold;
     font-size: 24px;
     text-transform: uppercase;
@@ -352,7 +352,7 @@ p-name {
 }
 
 p-valid {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-weight: bold;
     font-size: 24px;
     text-transform: uppercase;
@@ -361,7 +361,7 @@ p-valid {
 }
 
 p-invalid {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-weight: bold;
     text-transform: uppercase;
     color: #FF4747;
@@ -467,7 +467,7 @@ body {
     margin-right: auto;
     margin-top: 16px;
     display: block;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 12px;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -496,7 +496,7 @@ body {
 
 .pending-active {
     background-color: #FFBA35;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -512,7 +512,7 @@ body {
 
 .pending-inactive {
     background: #ffffff;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -528,7 +528,7 @@ body {
 
 .approved-active {
     background-color: #31D987;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -545,7 +545,7 @@ body {
 
 .approved-inactive {
     background: #ffffff;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -561,7 +561,7 @@ body {
 
 .declined-active {
     background-color: #FF4747;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -578,7 +578,7 @@ body {
 
 .declined-inactive {
     background: #ffffff;
-    font-family: "Lato SemiBold";
+    font-family: "Roboto SemiBold";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -641,7 +641,7 @@ h1 {
 }
 
 .label {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-weight: normal;
 }
 
@@ -671,16 +671,50 @@ img {
     box-sizing: border-box;
 }
 
-#lens {
+.tiles {
     position: absolute;
-    border: 2px solid grey;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: none;
-    box-shadow: inset 0 0 10px 2px grey;
-    filter: drop-shadow(0 0 2px grey);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-#lens>* {
-    cursor: none;
+.tile {
+    position: relative;
+    float: left;
+    width: 33.333%;
+    height: 100%;
+    overflow: hidden;
 }
+
+.photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform .5s ease-out;
+}
+
+.txt {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 10%;
+    left: 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 9px;
+    line-height: 12px;
+    text-align: center;
+    cursor: default;
+}
+
+.x {
+    font-size: 32px;
+    line-height: 32px;
+}
+
+</style>

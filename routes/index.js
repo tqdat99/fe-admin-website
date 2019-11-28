@@ -82,4 +82,8 @@ router.get('/status=:status', function(req, res, next) {
     }).catch(error => { console.log(error); });
 });
 
+router.get('/test', function(req, res, next) {
+    res.render('test');
+});
+
 module.exports = router;

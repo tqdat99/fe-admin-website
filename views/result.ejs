@@ -8,6 +8,7 @@
 </head>
 
 <body style="background-color:  rgb(233, 239, 248);">
+
     <div class="sidenav right_stroke fade-in one">
         <div class="my-row">
             <h3 style="color: #ffffff" class="back" onclick="window.location.href = '/status=<%=Status%>';"><img src="icons/back.svg" class="big-icon" /> Trở lại </h3>
@@ -54,6 +55,7 @@
             <p-info>Ảnh selfie</p-info>
         </div>
         <img src="data:image/png;base64, <%=Item.SelfieImage%>" class="img_holder_selfie" />
+
     </div>
 
     <div class="main">
@@ -69,7 +71,7 @@
                     <div class="card">
                         <div class="row d-flex align-items-center">
                             <div class="col-7" style="padding-left: 0px;">
-                                <img id="zoom" src="data:image/png;base64, <%=Item.CroppedImage%>" class="img_holder_id_card_result" />
+                                <img src="data:image/png;base64, <%=Item.CroppedImage%>" class="img_holder_id_card_result magnifiedImg" />
                             </div>
                             <div class="col-5">
                                 <h6 class="card-subtitle mb-2 text-muted">Số CMND </h6>
@@ -394,9 +396,9 @@
 
 </body>
 
-<script src="/javascripts/test.js"></script>
-<script src="/javascripts/scripts.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="/javascripts/scripts.js"></script>
+<script src="/javascripts/magnifier.js"></script>
 
 </html>

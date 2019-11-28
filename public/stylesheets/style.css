@@ -3,12 +3,6 @@ a {
     color: #00B7FF;
 }
 
-body {
-    zoom: 0.9;
-    -moz-transform: scale(0.9);
-    -moz-transform-origin: 0 0
-}
-
 @-webkit-keyframes fadeIn {
     from {
         opacity: 0;
@@ -162,8 +156,8 @@ p-info {
 
 .img_holder_id_card {
     display: block;
-    width: 340px;
-    height: 220px;
+    width: 300px;
+    height: 200px;
     object-fit: contain;
     margin-bottom: 16px;
     border-radius: 8px;
@@ -173,8 +167,8 @@ p-info {
 
 .img_holder_selfie {
     display: block;
-    width: 340px;
-    height: 180px;
+    width: 300px;
+    height: 200px;
     object-fit: contain;
     margin-bottom: 16px;
     border-radius: 8px;
@@ -286,7 +280,7 @@ p-info {
 
 .pending {
     color: #FFBA35;
-    font-family: "Roboto Semibold";
+    font-family: "Roboto Medium";
     margin: 0;
 }
 
@@ -304,7 +298,7 @@ p-info {
 
 .approved {
     color: #31D987;
-    font-family: "Roboto Semibold";
+    font-family: "Roboto Medium";
     margin: 0;
 }
 
@@ -323,7 +317,7 @@ p-info {
 
 .declined {
     color: #FF4747;
-    font-family: "Roboto Semibold";
+    font-family: "Roboto Medium";
     margin: 0;
 }
 
@@ -468,7 +462,7 @@ body {
     margin-right: auto;
     margin-top: 16px;
     display: block;
-    font-family: "Roboto SemiBold";
+    font-family: "Roboto Medium";
     font-size: 12px;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -497,7 +491,7 @@ body {
 
 .pending-active {
     background-color: #FFBA35;
-    font-family: "Roboto SemiBold";
+    font-family: "Roboto Medium";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -513,7 +507,7 @@ body {
 
 .pending-inactive {
     background: #ffffff;
-    font-family: "Roboto SemiBold";
+    font-family: "Roboto Medium";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -529,7 +523,7 @@ body {
 
 .approved-active {
     background-color: #31D987;
-    font-family: "Roboto SemiBold";
+    font-family: "Roboto Medium";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -546,7 +540,7 @@ body {
 
 .approved-inactive {
     background: #ffffff;
-    font-family: "Roboto SemiBold";
+    font-family: "Roboto Medium";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -562,7 +556,7 @@ body {
 
 .declined-active {
     background-color: #FF4747;
-    font-family: "Roboto SemiBold";
+    font-family: "Roboto Medium";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -579,7 +573,7 @@ body {
 
 .declined-inactive {
     background: #ffffff;
-    font-family: "Roboto SemiBold";
+    font-family: "Roboto Medium";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;

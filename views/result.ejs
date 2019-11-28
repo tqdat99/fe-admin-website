@@ -341,57 +341,57 @@
                 <button type="button" class="my-btn btn-danger" data-toggle="modal" data-target="#decline-confirmation">Từ chối</button>
                 <button type="button" class="my-btn btn-success" data-toggle="modal" data-target="#approve-confirmation">Xác thực</button>
                 <%}%>
-        </div>
-        <div class="modal fade text-center " id="decline-confirmation" tabindex="-1" role="dialog" aria-labelledby="decline-confirmation" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="decline-confirmation">Xác nhận</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
+                    <div class="modal fade text-center " id="decline-confirmation" tabindex="-1" role="dialog" aria-labelledby="decline-confirmation" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="decline-confirmation">Xác nhận</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Bạn sắp từ chối đơn vay của</p>
+                                    <p-name>
+                                        <%=Item.Fullname%>
+                                    </p-name>
+                                    <!-- <p-invalid>97%</p-invalid> -->
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                    <form action="/id=<%=Item.UserId%>&status=-1" method="POST">
+                                        <button type="submit" class="btn btn-danger">Từ chối</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <p>Bạn sắp từ chối đơn vay của</p>
-                        <p-name>
-                            <%=Item.Fullname%>
-                        </p-name>
-                        <!-- <p-invalid>97%</p-invalid> -->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                        <form action="/id=<%=Item.UserId%>&status=-1" method="POST">
-                            <button type="submit" class="btn btn-danger">Từ chối</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade text-center" id="approve-confirmation" tabindex="-1" role="dialog" aria-labelledby="approve-confirmation" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="approve-confirmation">Xác nhận</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Bạn sắp xác thực đơn vay của</p>
-                        <p-name>
-                            <%=Item.Fullname%>
-                        </p-name>
-                        <!-- <p-valid>97%</p-valid> -->
-                    </div>
+                    <div class="modal fade text-center" id="approve-confirmation" tabindex="-1" role="dialog" aria-labelledby="approve-confirmation" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="approve-confirmation">Xác nhận</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Bạn sắp xác thực đơn vay của</p>
+                                    <p-name>
+                                        <%=Item.Fullname%>
+                                    </p-name>
+                                    <!-- <p-valid>97%</p-valid> -->
+                                </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                        <form action="/id=<%=Item.UserId%>&status=1" method="POST">
-                            <button type="submit" class="btn btn-success">Xác thực</button>
-                        </form>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                    <form action="/id=<%=Item.UserId%>&status=1" method="POST">
+                                        <button type="submit" class="btn btn-success">Xác thực</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
         </div>
     </div>
 

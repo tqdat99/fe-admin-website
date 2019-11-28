@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
-
 </head>
 
 <body class="light_blue_background">
-
     <div class="sidenav right_stroke fade-in one">
         <div class="my-row">
             <h3 style="color: #ffffff" class="back" onclick="window.location.href = '/status=<%=Status%>';"><img src="icons/back.svg" class="big-icon" /> Trở lại </h3>
@@ -51,15 +49,11 @@
             <p-info>Ảnh CMND</p-info>
         </div>
         <img src="data:image/png;base64, <%=Item.IdentityCardImage%>" class="img_holder_id_card" />
-
         <div class="my-row d-flex align-items-center">
             <img src="icons/selfie.svg" class="info-icon" />
             <p-info>Ảnh selfie</p-info>
         </div>
         <img src="data:image/png;base64, <%=Item.SelfieImage%>" class="img_holder_selfie" />
-        <!-- <a href="#">OCR</a>
-        <a href="#">Template</a>
-        <a href="#">Face Comparison</a> -->
     </div>
 
     <div class="main">
@@ -70,74 +64,80 @@
                 </div>
             </div>
             <div class="row fade-in three">
-                <div class="col-6">
-                    <h5>Thông tin trích từ CMND</h5>
+                <div class="col" style="margin-bottom: 24px;">
+                    <h5>Thông tin CMND</h5>
                     <div class="card">
-                        <div class="card-body">
-
-                            <h6 class="card-subtitle mb-2 text-muted">Số CMND </h6>
-                            <%if (Item.IdentityNumberResult){%>
-                                <p class="card-text card-content no-btm-margin ">
-                                    <%=Item.OCRIdentityNumber%>
-                                        <img src="icons/valid.svg" class="small-icon" /></p>
-                                <%}else{%>
-                                    <p class="card-text card-content no-btm-margin" style="color: #FF4747">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-7" style="padding-left: 0px;">
+                                <img id="zoom" src="data:image/png;base64, <%=Item.CroppedImage%>" class="img_holder_id_card_result" />
+                            </div>
+                            <div class="col-5">
+                                <h6 class="card-subtitle mb-2 text-muted">Số CMND </h6>
+                                <%if (Item.IdentityNumberResult){%>
+                                    <p class="card-text card-content no-btm-margin ">
                                         <%=Item.OCRIdentityNumber%>
-                                            <img src="icons/invalid.svg" class="small-icon" /></p>
-                                    <%}%>
+                                            <img src="icons/valid.svg" class="small-icon" /></p>
+                                    <%}else{%>
+                                        <p class="card-text card-content no-btm-margin" style="color: #FF4747">
+                                            <%=Item.OCRIdentityNumber%>
+                                                <img src="icons/invalid.svg" class="small-icon" /></p>
+                                        <%}%>
 
-                                        <h6 class="card-subtitle mb-2 text-muted">Họ tên</h6>
-                                        <%if (Item.FullnameResult){%>
-                                            <p class="card-text card-content no-btm-margin ">
-                                                <%=Item.OCRFullname%>
-                                                    <img src="icons/valid.svg" class="small-icon" /></p>
-                                            <%}else{%>
-                                                <p class="card-text card-content no-btm-margin" style="color: #FF4747">
+                                            <h6 class="card-subtitle mb-2 text-muted">Họ tên</h6>
+                                            <%if (Item.FullnameResult){%>
+                                                <p class="card-text card-content no-btm-margin ">
                                                     <%=Item.OCRFullname%>
-                                                        <img src="icons/invalid.svg" class="small-icon" /></p>
-                                                <%}%>
+                                                        <img src="icons/valid.svg" class="small-icon" /></p>
+                                                <%}else{%>
+                                                    <p class="card-text card-content no-btm-margin" style="color: #FF4747">
+                                                        <%=Item.OCRFullname%>
+                                                            <img src="icons/invalid.svg" class="small-icon" /></p>
+                                                    <%}%>
 
 
-                                                    <h6 class="card-subtitle mb-2 text-muted">Ngày sinh</h6>
-                                                    <%if (Item.BirthdayResult){%>
-                                                        <p class="card-text card-content no-btm-margin ">
-                                                            <%=Item.OCRBirthday%>
-                                                                <img src="icons/valid.svg" class="small-icon" /></p>
-                                                        <%}else{%>
-                                                            <p class="card-text card-content no-btm-margin" style="color: #FF4747">
+                                                        <h6 class="card-subtitle mb-2 text-muted">Ngày sinh</h6>
+                                                        <%if (Item.BirthdayResult){%>
+                                                            <p class="card-text card-content no-btm-margin ">
                                                                 <%=Item.OCRBirthday%>
-                                                                    <img src="icons/invalid.svg" class="small-icon" /></p>
-                                                            <%}%>
+                                                                    <img src="icons/valid.svg" class="small-icon" /></p>
+                                                            <%}else{%>
+                                                                <p class="card-text card-content no-btm-margin" style="color: #FF4747">
+                                                                    <%=Item.OCRBirthday%>
+                                                                        <img src="icons/invalid.svg" class="small-icon" /></p>
+                                                                <%}%>
 
-                                                                <h6 class="card-subtitle mb-2 text-muted">Nguyên quán</h6>
-                                                                <%if (Item.HometownResult){%>
-                                                                    <p class="card-text card-content no-btm-margin ">
-                                                                        <%=Item.OCRHometown%>
-                                                                            <img src="icons/valid.svg" class="small-icon" /></p>
-                                                                    <%}else{%>
-                                                                        <p class="card-text card-content no-btm-margin" style="color: #FF4747">
+                                                                    <h6 class="card-subtitle mb-2 text-muted">Nguyên quán</h6>
+                                                                    <%if (Item.HometownResult){%>
+                                                                        <p class="card-text card-content no-btm-margin ">
                                                                             <%=Item.OCRHometown%>
+                                                                                <img src="icons/valid.svg" class="small-icon" /></p>
+                                                                        <%}else{%>
+                                                                            <p class="card-text card-content no-btm-margin" style="color: #FF4747">
+                                                                                <%=Item.OCRHometown%>
 
-                                                                                <img src="icons/invalid.svg" class="small-icon" /></p>
-                                                                        <%}%>
+                                                                                    <img src="icons/invalid.svg" class="small-icon" /></p>
+                                                                            <%}%>
 
-                                                                            <h6 class="card-subtitle mb-2 text-muted">Nơi ĐKHK thường trú </h6>
-                                                                            <%if (Item.DistrictResult && Item.ProvinceResult){%>
-                                                                                <p class="card-text card-content no-btm-margin ">
-                                                                                    <%=Item.OCRProvince%>,
-                                                                                        <%=Item.OCRDistrict%>
-                                                                                            <img src="icons/valid.svg" class="small-icon" /></p>
-                                                                                <%}else{%>
-                                                                                    <p class="card-text card-content no-btm-margin" style="color: #FF4747">
-                                                                                        <%=Item.OCRProvince%>,
-                                                                                            <%=Item.OCRDistrict%>
-                                                                                                <img src="icons/invalid.svg" class="small-icon" /></p>
-                                                                                    <%}%>
+                                                                                <h6 class="card-subtitle mb-2 text-muted">Nơi ĐKHK thường trú </h6>
+                                                                                <%if (Item.DistrictResult && Item.ProvinceResult){%>
+                                                                                    <p class="card-text card-content no-btm-margin ">
+                                                                                        <%=Item.OCRDistrict%>,
+                                                                                            <%=Item.OCRProvince%>
+                                                                                                <img src="icons/valid.svg" class="small-icon" /></p>
+                                                                                    <%}else{%>
+                                                                                        <p class="card-text card-content no-btm-margin" style="color: #FF4747">
+                                                                                            <%=Item.OCRDistrict%>,
+                                                                                                <%=Item.OCRProvince%>
+                                                                                                    <img src="icons/invalid.svg" class="small-icon" /></p>
+                                                                                        <%}%>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+            </div>
+            <div class="row fade-in three">
+                <div class="col" style="margin-bottom: 24px;">
                     <h5>Thông tin trong đơn</h5>
                     <div class="card">
                         <div class="row">
@@ -166,104 +166,220 @@
                                         <%=Item.Province%>
                                 </p>
                             </div>
-                            <!-- <div class="card-body"> -->
-                            <!-- <h6 class="card-subtitle mb-2 text-muted">Số nhà & tên đường</h6>
-                                <p class="card-text card-content">3A Nguyễn Thị Minh Khai</p> -->
-                            <!-- <h6 class="card-subtitle mb-2 text-muted">Phường/Xã</h6>
-                                <p class="card-text card-content">Phường 10</p> -->
-                            <!-- <h6 class="card-subtitle mb-2 text-muted">Tỉnh thành</h6>
-                                <p class="card-text card-content">TP. Hồ Chí Minh</p>
-                                <h6 class="card-subtitle mb-2 text-muted">Quận/huyện</h6>
-                                <p class="card-text card-content">Quận 6</p> -->
-                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row fade-in three">
-                <div class="col">
+                <div class="col" style="margin-bottom: 24px;">
                     <h5>Kiểm tra template</h5>
-                    <div class="card">
+                    <div class="card" style="padding-left: 0; padding-right: 0;">
                         <div class="card-body">
-                            Tỉ lệ
-                            <div class="percentage-valid">98%</div>
+                            <div class="row" style="margin-bottom: 0;">
+                                <div class="col-sm d-flex align-items-end flex-column bd-highlight mb-3">
+                                    <div class="text-center" style="padding:0px">
+                                        <img src="data:image/png;base64, <%=Item.QuocHuyImage%>" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Quốc huy cắt</h6>
+                                    </div>
+                                </div>
+                                <div class="col-sm d-flex align-items-start flex-column bd-highlight mb-3">
+                                    <div class="text-center" style="padding:0px">
+                                        <img src="images/quochuygoc.png" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Quốc huy chuẩn</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex align-items-center text-center section-line" style="margin-bottom: 56px; padding-bottom: 32px;">
+                                <div class="col-12">
+                                    Tỉ lệ chuẩn
+                                    <%if (Item.QuocHuyScore.toFixed(2)*100 > 50){%>
+                                        <div class="percentage-valid" data-end="%">
+                                            <%=Item.QuocHuyScore.toFixed(2)*100%>
+                                        </div>
+                                        <%}else {%>
+                                            <div class="percentage-invalid" data-end="%">
+                                                <%=Item.QuocHuyScore.toFixed(2)*100%>
+                                            </div>
+                                            <%}%>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-bottom: 0;">
+                                <div class="col-sm d-flex align-items-end flex-column bd-highlight mb-3">
+                                    <div class="text-center" style="padding:0px">
+                                        <img src="data:image/png;base64, <%=Item.TieuDeImage%>" class="img_holder_tieude" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Tiêu đề cắt</h6>
+                                    </div>
+                                </div>
+                                <div class="col-sm d-flex align-items-start flex-column bd-highlight mb-3">
+                                    <div class="text-center" style="padding:0px">
+                                        <img src="images/quocngu.jpg" class="img_holder_tieude" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Quốc ngữ chuẩn</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex align-items-center text-center section-line" style="margin-bottom: 56px; padding-bottom: 32px;">
+                                <div class="col-12">
+                                    Tỉ lệ chuẩn
+                                    <%if (Item.QuocNguScore.toFixed(2)*100 > 50){%>
+                                        <div class="percentage-valid" data-end="%">
+                                            <%=Item.QuocNguScore.toFixed(2)*100%>
+                                        </div>
+                                        <%}else {%>
+                                            <div class="percentage-invalid" data-end="%">
+                                                <%=Item.QuocNguScore.toFixed(2)*100%>
+                                            </div>
+                                            <%}%>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-bottom: 0;">
+                                <div class="col-sm d-flex align-items-end flex-column bd-highlight mb-3">
+                                    <div class="text-center" style="padding:0px">
+                                        <img src="data:image/png;base64, <%=Item.TieuDeImage%>" class="img_holder_tieude" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Tiêu đề cắt</h6>
+                                    </div>
+                                </div>
+                                <div class="col-sm d-flex align-items-start flex-column bd-highlight mb-3">
+                                    <div class="text-center" style="padding:0px">
+                                        <img src="images/tieungu.jpg" class="img_holder_tieude" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Tiêu ngữ chuẩn</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex align-items-center text-center section-line" style="margin-bottom: 56px; padding-bottom: 32px;">
+                                <div class="col-12">
+                                    Tỉ lệ chuẩn
+                                    <%if (Item.TieuNguScore.toFixed(2)*100 > 50){%>
+                                        <div class="percentage-valid" data-end="%">
+                                            <%=Item.TieuNguScore.toFixed(2)*100%>
+                                        </div>
+                                        <%}else {%>
+                                            <div class="percentage-invalid" data-end="%">
+                                                <%=Item.TieuNguScore.toFixed(2)*100%>
+                                            </div>
+                                            <%}%>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm d-flex align-items-end flex-column bd-highlight mb-3">
+                                    <div class="text-center" style="padding:0px">
+                                        <img src="data:image/png;base64, <%=Item.TieuDeImage%>" class="img_holder_tieude" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Tiêu đề cắt</h6>
+                                    </div>
+                                </div>
+                                <div class="col-sm d-flex align-items-start flex-column bd-highlight mb-3">
+                                    <div class="text-center" style="padding:0px">
+                                        <img src="images/cmnd.jpg" class="img_holder_tieude" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Tên giấy chuẩn</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex align-items-center text-center" style="margin-bottom: 32px;">
+                                <div class="col-12">
+                                    Tỉ lệ chuẩn
+                                    <%if (Item.TenGiayScore.toFixed(2)*100 > 50){%>
+                                        <div class="percentage-valid" data-end="%">
+                                            <%=Item.TenGiayScore.toFixed(2)*100%>
+                                        </div>
+                                        <%}else {%>
+                                            <div class="percentage-invalid" data-end="%">
+                                                <%=Item.TenGiayScore.toFixed(2)*100%>
+                                            </div>
+                                            <%}%>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row fade-in four">
-                <div class="col">
+                <div class="col" style="margin-bottom: 24px;">
                     <h5>So sánh khuôn mặt</h5>
                     <div class="card">
                         <div class="card-body">
-                            Tỉ lệ
-                            <div class="percentage-valid" data-end="%">
-                                <%=Item.FaceResult.toFixed(2)%>
+                            <div class="row" style="margin-bottom: 0;">
+                                <div class="col-sm d-flex text-center align-items-end flex-column bd-highlight mb-3">
+                                    <div class="text-center">
+                                        <img src="data:image/png;base64, <%=Item.ChanDungImage%>" class="img_holder_face_result" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Mặt trong CMND</h6>
+                                    </div>
+                                </div>
+                                <div class="col-sm d-flex text-center align-items-start flex-column bd-highlight mb-3">
+                                    <div class="text-center">
+                                        <img src="data:image/png;base64, <%=Item.SelfieImage%>" class="img_holder_face_result" />
+                                        <h6 class="card-subtitle mb-2 text-muted">Mặt trong ảnh</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex align-items-center text-center">
+                                <div class="col-12">
+                                    Tỉ lệ trùng khớp
+                                    <%if (Item.FaceResult.toFixed(0) > 50){%>
+                                        <div class="percentage-valid" data-end="%">
+                                            <%=Item.FaceResult.toFixed(0)%>
+                                        </div>
+                                        <%}else {%>
+                                            <div class="percentage-invalid" data-end="%">
+                                                <%=Item.FaceResult.toFixed(0)%>
+                                            </div>
+                                            <%}%>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container text-center fade-in five">
-                <div class="row">
-                    <div class="col">
-                        <h5>Kết quả</h5>
-                        <div class="percentage-valid">98%</div>
-                        <%if (Item.VerificationStatus==0){%>
-                            <button type="button" class="my-btn btn-danger" data-toggle="modal" data-target="#decline-confirmation">Từ chối</button>
-                            <button type="button" class="my-btn btn-success" data-toggle="modal" data-target="#approve-confirmation">Xác thực</button>
-                            <%}%>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade text-center " id="decline-confirmation" tabindex="-1" role="dialog" aria-labelledby="decline-confirmation" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="decline-confirmation">Xác nhận</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </div>
+        <div class="modal fade text-center " id="decline-confirmation" tabindex="-1" role="dialog" aria-labelledby="decline-confirmation" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="decline-confirmation">Xác nhận</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Bạn sắp từ chối đơn vay của</p>
-                            <p-name>
-                                <%=Item.Fullname%>
-                            </p-name>
-                            <!-- <p-invalid>97%</p-invalid> -->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                            <form action="/id=<%=Item.UserId%>-status=-1" method="POST">
-                                <button type="submit" class="btn btn-danger">Từ chối</button>
-                            </form>
-                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn sắp từ chối đơn vay của</p>
+                        <p-name>
+                            <%=Item.Fullname%>
+                        </p-name>
+                        <!-- <p-invalid>97%</p-invalid> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <form action="/id=<%=Item.UserId%>-status=-1" method="POST">
+                            <button type="submit" class="btn btn-danger">Từ chối</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="modal fade text-center" id="approve-confirmation" tabindex="-1" role="dialog" aria-labelledby="approve-confirmation" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="approve-confirmation">Xác nhận</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </div>
+        <div class="modal fade text-center" id="approve-confirmation" tabindex="-1" role="dialog" aria-labelledby="approve-confirmation" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="approve-confirmation">Xác nhận</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Bạn sắp xác thực đơn vay của</p>
-                            <p-name>
-                                <%=Item.Fullname%>
-                            </p-name>
-                            <!-- <p-valid>97%</p-valid> -->
-                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn sắp xác thực đơn vay của</p>
+                        <p-name>
+                            <%=Item.Fullname%>
+                        </p-name>
+                        <!-- <p-valid>97%</p-valid> -->
+                    </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                            <form action="/id=<%=Item.UserId%>-status=1" method="POST">
-                                <button type="submit" class="btn btn-success">Xác thực</button>
-                            </form>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <form action="/id=<%=Item.UserId%>-status=1" method="POST">
+                            <button type="submit" class="btn btn-success">Xác thực</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -272,14 +388,8 @@
 
 </body>
 
-<script>
-    $(document).ready(function() {
-        $(form).on('submit', function() {
-            location.reload();
-        });
-    })
-</script>
-<script src="javascripts/scripts.js"></script>
+<script src="/javascripts/test.js"></script>
+<script src="/javascripts/scripts.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 

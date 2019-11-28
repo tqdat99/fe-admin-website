@@ -160,9 +160,9 @@ p-info {
     height: 200px;
     object-fit: contain;
     margin-bottom: 16px;
+    margin-top: 8px;
     border-radius: 8px;
     background-color: rgb(16, 27, 46);
-    ;
 }
 
 .img_holder_selfie {
@@ -171,6 +171,7 @@ p-info {
     height: 200px;
     object-fit: contain;
     margin-bottom: 16px;
+    margin-top: 8px;
     border-radius: 8px;
     background-color: rgb(16, 27, 46);
 }

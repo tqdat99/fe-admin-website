@@ -333,6 +333,12 @@
                 </div>
             </div>
         </div>
+        <div class="col" style="padding-bottom: 80px;">
+            <%if (Item.VerificationStatus==0){%>
+                <button type="button" class="my-btn btn-danger" data-toggle="modal" data-target="#decline-confirmation">Từ chối</button>
+                <button type="button" class="my-btn btn-success" data-toggle="modal" data-target="#approve-confirmation">Xác thực</button>
+                <%}%>
+        </div>
         <div class="modal fade text-center " id="decline-confirmation" tabindex="-1" role="dialog" aria-labelledby="decline-confirmation" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -351,7 +357,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                        <form action="/id=<%=Item.UserId%>-status=-1" method="POST">
+                        <form action="/id=<%=Item.UserId%>&status=-1" method="POST">
                             <button type="submit" class="btn btn-danger">Từ chối</button>
                         </form>
                     </div>
@@ -377,7 +383,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                        <form action="/id=<%=Item.UserId%>-status=1" method="POST">
+                        <form action="/id=<%=Item.UserId%>&status=1" method="POST">
                             <button type="submit" class="btn btn-success">Xác thực</button>
                         </form>
                     </div>

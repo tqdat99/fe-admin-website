@@ -63,7 +63,7 @@
             </thead>
             <tbody class="fade-in one">
                 <% Items.forEach(function(item){ %>
-                    <tr class="my-tr" onclick="window.location='/status=<%=Status%>-id=<%= item.UserId%>'">
+                    <tr class="my-tr" onclick="window.location='/status=<%=Status%>&id=<%= item.UserId%>'">
                         <!-- <th class="name" scope="row">Nguyễn Văn Nam</th> -->
                         <th class="label">
                             <%= item.Fullname%>

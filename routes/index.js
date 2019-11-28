@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
     }).catch(error => { console.log(error); });
 });
 
-router.get('/status=:key-id=:id', function(req, res, next) {
+router.get('/status=:key&id=:id', function(req, res, next) {
     id = req.params["id"];
     status = req.params["key"];
     url = "https://devc-fe-backend.herokuapp.com/form?id=" + id;
@@ -45,7 +45,7 @@ router.get('/status=:key-id=:id', function(req, res, next) {
 
 });
 
-router.post('/id=:id-status=:status', function(req, res) {
+router.post('/id=:id&status=:status', function(req, res) {
     id = req.params["id"];
     status = req.params["status"];
     url = "https://devc-fe-backend.herokuapp.com/status?id=" + id + "&value=" + status;

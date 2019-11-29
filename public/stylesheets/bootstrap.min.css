@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=vietnamese');
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -65,9 +65,8 @@ section {
 
 body {
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    font-weight: 400;
     line-height: 1.5;
     color: #212529;
     text-align: left;
@@ -420,7 +419,7 @@ h4 {
 .h5,
 h5 {
     font-size: 18px;
-    font-family: "Lato SemiBold";
+    font-family: 'Roboto', sans-serif;
     color: #5C6C7B;
 }
 
@@ -428,7 +427,7 @@ h5 {
 h6 {
     font-size: 12px;
     color: #8B9BBA;
-    font-family: "Lato";
+    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     margin-top:
 }
@@ -1620,7 +1619,7 @@ pre code {
 }
 
 .table {
-    font-family: "Lato";
+    font-family: 'Roboto', sans-serif;
     width: 100%;
     margin-top: 8px;
     margin-bottom: 8px;
@@ -1889,8 +1888,7 @@ pre code {
 }
 
 .table .thead-dark th {
-    font-family: "Lato";
-    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #8B9BBA;
     border-color: #F9F9F9;
@@ -1994,14 +1992,13 @@ pre code {
 }
 
 .form-control {
-    font-family: "Lato";
+    font-family: 'Roboto', sans-serif;
     color: #8B9BBA;
     display: block;
     width: 100%;
     height: calc(1.5em + .75rem + 8px);
     padding: .375rem 16px;
     font-size: 1rem;
-    font-weight: 400;
     line-height: 1.5;
     background-color: #fff;
     background-clip: padding-box;

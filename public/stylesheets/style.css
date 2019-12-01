@@ -156,8 +156,10 @@ p-info {
 
 .img_holder_id_card {
     display: block;
-    max-width: 300px;
-    max-height: 200px;
+    /* max-width: 300px;
+    max-height: 200px; */
+    max-width: 100%;
+    height: auto;
     object-fit: contain;
     margin-bottom: 16px;
     margin-top: 8px;
@@ -167,8 +169,11 @@ p-info {
 
 .img_holder_selfie {
     display: block;
-    max-width: 300px;
+    /* max-width: 300px;
+    max-height: 200px; */
+    max-width: 100%;
     max-height: 200px;
+    width: auto;
     object-fit: contain;
     margin-bottom: 16px;
     margin-top: 8px;

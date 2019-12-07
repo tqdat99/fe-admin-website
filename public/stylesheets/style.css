@@ -305,7 +305,7 @@ p-info {
 
 .approved {
     color: #31D987;
-    font-family: 'Roboto Medium', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
 }
 
@@ -324,7 +324,7 @@ p-info {
 
 .declined {
     color: #FF4747;
-    font-family: 'Roboto Medium', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
 }
 
@@ -469,7 +469,7 @@ body {
     margin-right: auto;
     margin-top: 16px;
     display: block;
-    font-family: "Roboto Medium";
+    font-family: "Roboto";
     font-size: 12px;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -498,7 +498,7 @@ body {
 
 .pending-active {
     background-color: #FFBA35;
-    font-family: "Roboto Medium";
+    font-family: "Roboto";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -514,7 +514,7 @@ body {
 
 .pending-inactive {
     background: #ffffff;
-    font-family: "Roboto Medium";
+    font-family: "Roboto";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -530,7 +530,7 @@ body {
 
 .approved-active {
     background-color: #31D987;
-    font-family: "Roboto Medium";
+    font-family: "Roboto";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -547,7 +547,7 @@ body {
 
 .approved-inactive {
     background: #ffffff;
-    font-family: "Roboto Medium";
+    font-family: "Roboto";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -563,7 +563,7 @@ body {
 
 .declined-active {
     background-color: #FF4747;
-    font-family: "Roboto Medium";
+    font-family: "Roboto";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -580,7 +580,7 @@ body {
 
 .declined-inactive {
     background: #ffffff;
-    font-family: "Roboto Medium";
+    font-family: "Roboto";
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;

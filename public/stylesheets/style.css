@@ -212,6 +212,15 @@ p-info {
     margin-right: auto
 }
 
+.img_holder_badge {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto
+}
+
 .img_holder_face_result {
     display: block;
     width: 300px;
